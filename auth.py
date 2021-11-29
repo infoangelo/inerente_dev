@@ -79,6 +79,11 @@ def logout():
     return redirect(url_for('index'))
 
 
+@app.before_first_request
+def setup():
+    db.create_all()
+
+
 def login_required(view):
     @functools.wraps(view)
     def wrapped_view(**kwargs):
