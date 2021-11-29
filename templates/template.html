@@ -17,7 +17,8 @@
       {% if g.user %}
          <a class="nav-link" href="{{ url_for('logout') }}">{{ g.user.name }}</a>
       {% else %}
-         <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+         <a class="nav-link" href="{{ url_for('login') }}">Entrar</a>
+         <a class="nav-link" href="{{ url_for('register') }}">Registrar</a>
       {% endif %}
     </nav>
     <div class="container">
