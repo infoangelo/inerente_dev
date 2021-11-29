@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+  <form method="post">
+    <label for="title">Título</label>
+    <input name="title" id="title" required>
+    <br>
+    <label for="description">Descrição</label>
+    <input name="description" id="description" required>
+    <br>
+    <input type="submit" value="Cadastrar">
+  </form>
+
+{% endblock %}

@@ -1,5 +1,19 @@
 {% extends "template.html" %}
 {% block conteudo %}
 
+<h1>{{ course.title }}</h1>
+<h2>{{ lesson.title }}</h2>
+<div>{{ lesson.content }}</div>
+<p></p>
+<div><b>Exercício: </b>{{ lesson.exercise }}</div>
+  <form method="post">
+    <label for="exercise"></label>
+    <input name="exercise" id="exercise" required>
+    <br>
+    <input type="submit" value="Enviar">
+    <br>
+    <input type="submit" value="Caderno">
+    <input type="submit" value="Comentar">
+  </form>
 
 {% endblock %}

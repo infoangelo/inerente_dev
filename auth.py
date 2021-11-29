@@ -4,7 +4,7 @@ from flask import (
 )
 from werkzeug.security import check_password_hash, generate_password_hash
 from app import app
-from model import User, db
+from model import User, Course, db
 
 
 @app.route('/register', methods=('GET', 'POST'))
@@ -63,6 +63,12 @@ def login():
     return render_template('auth/login.html')
 
 
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
 @app.before_request
 def load_logged_in_user():
     user_id = session.get('user_id')
@@ -71,12 +77,6 @@ def load_logged_in_user():
         g.user = None
     else:
         g.user = User.query.filter_by(id=user_id).first()
-
-
-@app.route('/logout')
-def logout():
-    session.clear()
-    return redirect(url_for('index'))
 
 
 @app.before_first_request

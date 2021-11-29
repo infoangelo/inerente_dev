@@ -12,10 +12,10 @@
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
              <span class="navbar-toggler-icon"></span>
          </button>
-      <a class="nav-link" href="{{ url_for('course') }}">Cursos</a>
+      <a class="nav-link" href="{{ url_for('courses') }}">Cursos</a>
       <a class="nav-link" href="{{ url_for('about') }}">Sobre Nós</a>
       {% if g.user %}
-         <a class="nav-link" href="{{ url_for('logout') }}">{{ g.user.name }}</a>
+         <a class="nav-link" href="{{ url_for('logout') }}">{{ g.user.name }}(Sair)</a>
       {% else %}
          <a class="nav-link" href="{{ url_for('login') }}">Entrar</a>
          <a class="nav-link" href="{{ url_for('register') }}">Registrar</a>

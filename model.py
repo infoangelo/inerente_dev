@@ -22,8 +22,8 @@ class User(db.Model):
 
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(120), nullable=False)
-    description = db.Column(db.String(500), unique=True, nullable=False)
+    title = db.Column(db.String(120), unique=True, nullable=False)
+    description = db.Column(db.String(500), nullable=False)
     pub_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     instructor_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
     lessons = db.relationship('Lesson', backref='course', lazy=True)
@@ -35,7 +35,11 @@ class Course(db.Model):
 class Lesson(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(120), nullable=False)
+    description = db.Column(db.String(120), nullable=False)
     content = db.Column(db.String(1200), nullable=False)
+    exercise = db.Column(db.String(120))
+    input_exercise = db.Column(db.String(120))
+    output_exercise = db.Column(db.String(120))
     pub_date = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     course_id = db.Column(db.Integer, db.ForeignKey('course.id'), nullable=False)
     instructor_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
