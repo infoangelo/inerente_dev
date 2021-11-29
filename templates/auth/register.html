@@ -1,0 +1,27 @@
+{% extends "template.html" %}
+{% block conteudo %}
+
+  <form method="post">
+    <label for="name">Nome</label>
+    <input name="name" id="name" required>
+    <br>
+    <label for="email">Email</label>
+    <input name="email" id="email" required>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    <br>
+    <p>Selecione o tipo de usuário:</p>
+    <label for="student">Aluno</label>
+    <input type="radio" name="role" id="student" value="student" checked>
+    <br>
+    <label for="instructor">Instrutor</label>
+    <input type="radio" name="role" id="instructor" value="instructor">
+    <br>
+    <label for="admin">Administrador</label>
+    <input type="radio" name="role" id="admin" value="admin">
+    <br>
+    <input type="submit" value="Cadastrar">
+  </form>
+
+{% endblock %}
